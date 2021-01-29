@@ -1,4 +1,8 @@
 import sys
-import os
+from Builder import Builder
 
-import docker
+def main():
+    builder = Builder(sys.argv[1])
+
+if __name__ == "__main__":
+    main()

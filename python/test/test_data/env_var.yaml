@@ -1,0 +1,25 @@
+env :
+  - container:
+    name: db
+    image: "postgres:latest"
+    expose: 
+      5432/tcp : 5432
+    volumes:
+    - "C:\\Windows\\Temp\\python_sample\\:/var/lib/postgresql/data/pgdata"
+    env:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=123456"
+      - "PGDATA=/var/lib/postgresql/data/pgdata"
+
+
+  - container:
+    name : front
+    image: wordpress:latest
+    expose: 
+      80/tcp: 80
+    env:
+      - "WORDPRESS_DB_HOST=PC-DJADEAU:5432"
+      - "WORDPRESS_DB_USER=postgres"
+      - "WORDPRESS_DB_PASSWORD=123456"
+      - "WORDPRESS_DB_NAME=wp"
+      - "WORDPRESS_TABLE_PREFIX=wp"
