@@ -1,25 +1,28 @@
 env :
+  - network:
+    name: wp_network
+
   - container:
     name: db
-    image: "postgres:latest"
+    image: "mysql:5.7"
+    network: wp_network
     expose: 
-      5432/tcp : 5432
-    volumes:
-    - "C:\\Windows\\Temp\\python_sample\\:/var/lib/postgresql/data/pgdata"
+      3306/tcp: 3306
     env:
-      - "POSTGRES_USER=postgres"
-      - "POSTGRES_PASSWORD=123456"
-      - "PGDATA=/var/lib/postgresql/data/pgdata"
+      - "MYSQL_ROOT_PASSWORD=123456"
+      - "MYSQL_USER=mysqlusr"
+      - "MYSQL_PASSWORD=123456"
 
 
   - container:
     name : front
     image: wordpress:latest
+    network: wp_network
     expose: 
       80/tcp: 80
     env:
-      - "WORDPRESS_DB_HOST=PC-DJADEAU:5432"
-      - "WORDPRESS_DB_USER=postgres"
+      - "WORDPRESS_DB_HOST=db"
+      - "WORDPRESS_DB_USER=root"
       - "WORDPRESS_DB_PASSWORD=123456"
       - "WORDPRESS_DB_NAME=wp"
       - "WORDPRESS_TABLE_PREFIX=wp"
