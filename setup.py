@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='builddevenv',                    # package name
-    version='0.3',                          # version
+    version='1.0',                          # version
     description='Module that makes, in a development context, the creation of dockers containers easier.',      # short description
     author='Damien JADEAU',
     keywords = 'docker development deploy',
