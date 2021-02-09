@@ -12,7 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    classifiers = ['Topic :: Education', 'Topic :: Documentation', 'Development Status :: 4 - Beta', 'Intended Audience :: Developers', 'Topic :: Software Development :: Build Tools'],
+    classifiers = ['Topic :: Education', 'Topic :: Documentation', 'Development Status :: 5 - Production/Stable', 'Intended Audience :: Developers', 'Topic :: Software Development :: Build Tools'],
     license = 'GPL V3',
     url = 'https://github.com/djadeau-dvc/BuildDevEnv',               # package URL
     install_requires = [
