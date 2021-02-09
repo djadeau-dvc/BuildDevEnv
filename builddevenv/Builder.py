@@ -3,6 +3,7 @@ import yaml
 import time
 from typing import Dict, List
 
+__VOLUME_SEP__ = "|"
 
 class NetworkConfig:
     """
@@ -67,11 +68,8 @@ class ContainerConfig:
         else:
             volume_list = []
             for elem in volumes:
-                volume_list.append({elem.split(":")[0] : {'bind' : elem.split(":")[1], 'mode' : 'rw'}}) 
-            if len(volume_list) == 1 :
-                return volume_list[0]
-            else:
-                return volume_list
+                volume_list.append(elem.split(__VOLUME_SEP__)[1] + ":" + elem.split(__VOLUME_SEP__)[0]) 
+            return volume_list
 
     @property
     def get_name(self) -> str:

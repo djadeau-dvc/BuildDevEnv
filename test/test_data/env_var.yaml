@@ -6,6 +6,8 @@ env :
     name: db
     image: "mysql:5.7"
     network: wp_network
+    volumes:
+      - '/home/user1/|C:/Users/DJADEAU/AppData/Local/Temp/a'
     expose: 
       3306/tcp: 3306
     env:
